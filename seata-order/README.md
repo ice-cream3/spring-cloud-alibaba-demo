@@ -73,4 +73,4 @@ lock_table:
 global_table:
 branch_table:
 
-![fire work](./fire_work.gif)
+![fire work](../fire_work.gif)

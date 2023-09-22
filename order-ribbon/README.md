@@ -18,4 +18,4 @@ ribbon:
 ```
 自定义负载规则:
     com.tx.ribbon.MyRule  
-![fire work](./fire_work.gif)
+![fire work](../fire_work.gif)

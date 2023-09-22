@@ -4,4 +4,4 @@
 ``
 restTemplate.getForObject("http://127.0.0.1:8081/order/get", String.class);
 ``
-![fire smile](./fire_smile.gif)
+![fire smile](../fire_smile.gif)

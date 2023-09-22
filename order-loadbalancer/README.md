@@ -29,4 +29,4 @@ spring:
         enabled: false
 ```
 TemplateConfig添加@LoadBalanced
-![fire work](./fire_work.gif)
+![fire work](../fire_work.gif)

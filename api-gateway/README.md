@@ -226,4 +226,4 @@ http://localhost:8095/order-route/order/add?orderId=123&filterName=filter
 发送请求时如果没有filterName参数或者filterName的value值不等于filter则返回***404***
 
 
-![fire work](./fire_work.gif)
+![fire work](../fire_work.gif)

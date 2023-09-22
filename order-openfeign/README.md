@@ -59,4 +59,4 @@ Controller中注入feign接口:
 1.实现RequestInterceptor接口  
 2.重写apply(RequestTemplate requestTemplate)方法
 
-![fire work](./fire_work.gif)
+![fire work](../fire_work.gif)

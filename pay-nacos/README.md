@@ -41,5 +41,5 @@ public class TemplateConfig {
  // 注册到nacos,使用服务名称(pay-service)进行请求,restTemplate实例需要添加@LoadBalanced
  restTemplate.getForObject("http://pay-service/pay/get", String.class);
 ```
-![fire smile](./fire_smile.gif)
+![fire smile](../fire_smile.gif)
 

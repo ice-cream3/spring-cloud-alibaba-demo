@@ -1,2 +1,2 @@
-### 简单的restTemplate调用事例
+### spring cloud alibaba 2.2.7.RELEASE
 ![fire smile](./fire_smile.gif)

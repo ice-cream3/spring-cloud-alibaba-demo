@@ -54,4 +54,4 @@ seata:
       my_test_tx_group: default
 ```
 
-![fire work](./fire_work.gif)
+![fire work](../fire_work.gif)
