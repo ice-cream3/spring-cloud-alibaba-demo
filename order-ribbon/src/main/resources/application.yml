@@ -1,0 +1,23 @@
+server:
+  port: 8086
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      server-addr: 192.168.106.103:8850
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15
+# 配置nacos权重方式
+pay-service:
+  ribbon:
+    #NFLoadBalancerRuleClassName: com.alibaba.cloud.nacos.ribbon.NacosRule
+    NFLoadBalancerRuleClassName: com.tx.ribbon.MyRule
+ribbon:
+  eager-load:
+    # 关闭延迟加载
+    enabled: true
+    # 多个服务用逗号分隔
+    clients: pay-service

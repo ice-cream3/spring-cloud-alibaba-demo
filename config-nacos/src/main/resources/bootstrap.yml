@@ -1,0 +1,15 @@
+# ????
+# https://github.com/alibaba/spring-cloud-alibaba/wiki/Nacos-config
+# https://github.com/alibaba/spring-cloud-alibaba/wiki/%E7%89%88%E6%9C%AC%E8%AF%B4%E6%98%8E
+spring:
+  application:
+    name: config-nacos
+  cloud:
+    nacos:
+      server-addr: 192.168.106.103:8850
+      username: nacos
+      password: nacos
+      config:
+        file-extension: yaml
+        group: test
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15

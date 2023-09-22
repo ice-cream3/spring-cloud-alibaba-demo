@@ -1,0 +1,13 @@
+server:
+  port: 8090
+spring:
+  application:
+    name: sentinel-demo
+  cloud:
+    sentinel:
+      transport:
+#        client-ip: 192.168.20.199 #配置服务所在机器IP
+        dashboard: :127.0.0.1:8080 #配置sentinel服务IP
+#        dashboard: 192.168.106.101:8989
+      #针对链路的限流,需要设置此参数:表示维护一个链路树结构
+      web-context-unify: false

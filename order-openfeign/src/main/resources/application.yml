@@ -1,0 +1,36 @@
+server:
+  port: 8088
+spring:
+  application:
+    name: order-service
+  cloud:
+    nacos:
+      server-addr: 192.168.106.103:8850
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15
+ribbon:
+  eager-load:
+    # 关闭延迟加载
+    enabled: true
+    # 多个服务用逗号分隔
+    clients: pay-service
+
+# springboot默认日志级别是info,feign的dubug日志级别不会输出
+logging:
+  level:
+    com.tx.pay.feign: debug
+
+# feign日志局部配置
+feign:
+  client:
+    config:
+      pay-service:
+        logger-level: full
+        # 设置为默认的契约 (原生注解:默认契约 @RequestLine == @RequestMapping)
+        #contract: feign.Contract.Default
+        connect-timeout: 2000
+        read-timeout: 3000
+        request-interceptors:
+          - com.tx.pay.interceptor.CustomerFeignInterceptor

@@ -1,0 +1,21 @@
+server:
+  port: 8091
+spring:
+  application:
+    name: sentinel-openfeign
+  cloud:
+    sentinel:
+      transport:
+        dashboard: 127.0.0.1:8080
+      #针对链路的限流,需要设置此参数:表示维护一个链路树结构
+      web-context-unify: false
+    nacos:
+      server-addr: 192.168.106.103:8850
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15
+# 启动openFeign整合sentinel的配置
+feign:
+  sentinel:
+    enabled: true

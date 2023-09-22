@@ -1,0 +1,50 @@
+server:
+  port: 8093
+spring:
+  datasource:
+    druid:
+      url: jdbc:mysql://192.168.106.102:33062/tx_cluster
+      username: root
+      password: Aa123456
+      driver-class-name: com.mysql.cj.jdbc.Driver
+  application:
+    name: seata-pay
+  cloud:
+    nacos:
+      server-addr: 192.168.106.103:8850
+      username: nacos
+      password: nacos
+      discovery:
+        namespace: 7bac0305-9683-42e5-9006-d3da093ce80f
+    alibaba:
+      seata:
+        # 配置事务分组.seata/seata/seata-1.3.0/script/config-center/config.txt文中自己定义的分组service.vgroupMapping.my_test_tx_group=default
+        tx-service-group: my_test_tx_group
+seata:
+  registry:
+    # 配置seata的注册中心,告诉 seata client 怎么云访问seata server(TC)
+    type: nacos
+    nacos:
+      server-addr: 192.168.106.103:8850
+      application: seata-server
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      namespace: 7bac0305-9683-42e5-9006-d3da093ce80f
+  config:
+    type: nacos
+    nacos:
+      server-addr: 192.168.106.103:8850
+      username: nacos
+      password: nacos
+      group: SEATA_GROUP
+      namespace: 7bac0305-9683-42e5-9006-d3da093ce80f
+  tx-service-group: my_test_tx_group
+  service:
+    vgroup-mapping:
+      my_test_tx_group: default
+
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml
+  type-aliases-package: com.tx.pay.entity

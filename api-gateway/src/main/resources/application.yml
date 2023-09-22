@@ -1,0 +1,43 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      # 路由规则,如果启动报错就把注释文档删除
+      routes:
+        - id: order_route # 路由的唯一标识
+          # 需要转发的地址,直接写死的
+          #uri: http://localhost:8083
+          # 需要转发的地址,从nacos中获取服务名称
+          uri: lb://order-service
+          # 断言规则 路由规则匹配
+          predicates:
+            # 设置一个路由地址,请求时添加到域名后,接口地址前http://localhost:8095/路由地址/pay/add,如:http://localhost:8095/order-route/order/add?orderId=123
+            - Path=/order-route/**
+            # 官网文档:https://docs.spring.io/spring-cloud-gateway/docs/current/reference/html/#gateway-request-predicates-factories
+            # This route matches any request made after Jan 20, 2017 17:42 Mountain Time (Denver). 不符合规则会返回404
+            - After=2022-09-21T17:21:23.192+08:00[Asia/Shanghai]
+            # 自定义断言IceRoutePredicateFactory
+            #- Ice=ILoveYour
+          filters:
+            - StripPrefix=1 #转发前去掉指定的路由地址:order-route变成这样:http://localhost:8083/pay/add
+            - MyParam=filter #自定义过滤
+#      globalcors:
+#        cors-configurations:
+#          '[/**]': # 允许跨域访问资源
+#            allowedOrigins:
+#              - *
+#            allowedMethods:
+#              - GET
+    nacos:
+      server-addr: 192.168.106.103:8850
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15
+    sentinel:
+      transport:
+        #        dashboard: 192.168.106.101:8989
+        dashboard: 127.0.0.1:8080

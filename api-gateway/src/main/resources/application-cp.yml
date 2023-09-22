@@ -1,0 +1,17 @@
+server:
+  port: 8095
+spring:
+  application:
+    name: api-gateway
+  cloud:
+    gateway:
+      discovery:
+        locator:
+          # 启动自动识别nacos服务,可以不用配置,直接使用服务名(order-service)称访问:http://localhost:8095/order-service/order/add?orderId=123
+          enabled: true
+    nacos:
+      server-addr: 192.168.106.103:8850
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15

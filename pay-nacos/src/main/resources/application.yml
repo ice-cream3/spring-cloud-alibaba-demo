@@ -1,0 +1,12 @@
+server:
+  port: 8084
+spring:
+  application:
+    name: pay-service
+  cloud:
+    nacos:
+      server-addr: 192.168.106.103:8850
+      discovery:
+        username: nacos
+        password: nacos
+        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15
