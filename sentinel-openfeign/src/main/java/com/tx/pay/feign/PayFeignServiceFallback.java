@@ -23,5 +23,4 @@ public class PayFeignServiceFallback implements PayFeignService{
         return "降级了,降级了";
     }
 
-
 }
