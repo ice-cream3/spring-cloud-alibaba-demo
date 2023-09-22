@@ -20,5 +20,5 @@
 + - config-nacos
 + ### spring cloud seata
 * - sentinel-demo
-* - sentinel-pay
-![fire smile](./fire_smile.gif)
+* - sentinel-pay  
+![fire work](./fire_work.gif)
