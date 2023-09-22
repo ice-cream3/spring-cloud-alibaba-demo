@@ -15,8 +15,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * path:指定接口类指定的@RequestMapping路径
  */
 @FeignClient(value = "pay-service", path = "/pay", fallback = PayFeignServiceFallback.class)
-// 局部日志配置如下
-// @FeignClient(value = "pay-service", path = "/pay", configuration = FeignConfig.class)
 public interface PayFeignService {
 
     // 原生注解:默认契约 @RequestLine == @RequestMapping
