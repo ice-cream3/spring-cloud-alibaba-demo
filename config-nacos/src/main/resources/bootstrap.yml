@@ -11,5 +11,7 @@ spring:
       password: nacos
       config:
         file-extension: yaml
-        group: test
-        namespace: 2ce3b450-5f08-4fae-a38d-c7da174ddd15
+        namespace: 38e6564f-ac2e-4b39-945b-fd1218bb953f
+        server-addr: 192.168.106.103:8850
+        username: nacos
+        password: nacos

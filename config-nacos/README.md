@@ -39,4 +39,28 @@ public static void main(String[] args) throws InterruptedException {
 
 Controller中动态打印nacos服务中的配置文件信息:  
 用@Value("${user.name}")注入属性名称,添加@RefreshScope注解,动态刷新nacos中配置信息.
+获取复杂类型的值:
+
+  - 1.定义一下MyServerProperties配置类
+  - 2.定义加载类 @ConfigurationProperties指定配置文件中属性key
+  - @Bean(name = "NacosUser")用于引用是注入
+  - 配置文件如下
+    - user: 
+        - name: nnn 
+        - age: 18 
+        - like: 
+          - -eat 
+          - -play 
+          - -sing 
+```
+    @Bean(name = "NacosUser")
+    @ConfigurationProperties(prefix = "user.like")
+    List<String> list() {
+        return new ArrayList<>();
+    }
+```
+    使用属性时直接注入：
+    @Resource(name = "NacosUser")
+    private List<String> likes;
+    
 ![fire smile](../fire_smile.gif)
